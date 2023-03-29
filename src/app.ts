@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.get("/health", (_req: Request, res: Response) => res.send("I'm alive!"));
-app.get("/users", usersRouter);
+app.use("/users", usersRouter);
 app.all("*", (_req: Request, res: Response) =>
   res.send("No request to this route")
 );
