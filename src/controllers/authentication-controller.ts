@@ -13,6 +13,6 @@ export async function signInPost(req: Request, res: Response) {
     return res.status(200).send(result);
   } catch (error) {
       console.log(error)
-    return res.status(httpStatus.UNAUTHORIZED).send({});
+    return res.status(httpStatus.UNAUTHORIZED).send("deu erro");
   }
 }
