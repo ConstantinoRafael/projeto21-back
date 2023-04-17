@@ -15,9 +15,18 @@ async function create(data: Prisma.UserUncheckedCreateInput) {
   });
 }
 
+async function getUsersWithEnrollments() {
+  return prisma.user.findMany({
+    include: {
+      Enrrolment: true
+    }
+  })
+}
+
 const userRepository = {
   findByEmail,
   create,
+  getUsersWithEnrollments
 };
 
 export default userRepository;

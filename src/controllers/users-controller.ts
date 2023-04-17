@@ -18,3 +18,15 @@ export async function signUp(req: Request, res: Response) {
     return res.status(httpStatus.BAD_REQUEST).send(error);
   }
 }
+
+export async function getUsers(req: Request, res: Response) {
+
+  try {
+    const users = await userService.getUsersWithEnrollments();
+    return res.status(httpStatus.OK).send(users);
+
+  } catch (error) {
+    console.log(error);
+    return res.status(httpStatus.NOT_FOUND).send(error);
+  }
+}

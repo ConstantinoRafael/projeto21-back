@@ -17,10 +17,17 @@ async function createUser({
   });
 }
 
+async function getUsersWithEnrollments() {
+  const users = await userRepository.getUsersWithEnrollments()
+
+  return users;
+}
+
 export type CreateUserParams = Pick<User, "email" | "password">;
 
 const userService = {
   createUser,
+  getUsersWithEnrollments
 };
 
 export default userService;
