@@ -1,8 +1,8 @@
 import enrollmentsRepository from "../../repositories/enrollments-repository";
 
-async function getEnrollmentByUserId(userId: number) {
+async function getEnrollments() {
 
-    const enrollment = await enrollmentsRepository.findEnrollmenteByUserId(userId);
+    const enrollment = await enrollmentsRepository.findEnrollments();
     
     return enrollment;
 
@@ -13,7 +13,7 @@ async function createOrUpdateEnrollment() {
 }
 
 const enrollmentsService = {
-    getEnrollmentByUserId,
+    getEnrollments,
     createOrUpdateEnrollment
 }
 
