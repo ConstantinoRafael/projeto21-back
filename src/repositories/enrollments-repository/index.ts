@@ -5,8 +5,19 @@ async function findEnrollments() {
   return prisma.enrollment.findMany();
 }
 
-const enrollmentsRepository = {
-    findEnrollments
+async function findEnrollmentsByInst(inst: string) {
+  return prisma.enrollment.findMany({
+    where: {
+      instruments: {
+        has: inst,
+      },
+    },
+  });
 }
+
+const enrollmentsRepository = {
+  findEnrollments,
+  findEnrollmentsByInst,
+};
 
 export default enrollmentsRepository;
